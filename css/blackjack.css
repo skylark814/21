@@ -1,0 +1,61 @@
+body{
+    background-image:url(../picture/desktop.png);
+    background-repeat:no-repeat;
+    background-size:100% 100%
+
+}
+
+#howMany{
+    position:absolute;
+    left:0;
+    top:30px;
+    font-family: Chalkduster, Helvetica, sans-serif;
+}
+#open{
+    position:absolute;
+    left:100px;
+    top:160px;
+    border-color:#155A18;
+    width:75px;
+    height:75px;
+    background-image:url(../picture/start.png);
+    background-color: #155A18;
+    background-repeat:no-repeat;
+    background-size: cover
+}
+
+#househit{
+    position:absolute;
+    left:175px;
+    top:160px;
+    border-color:#155A18;
+    width:75px;
+    height:75px;
+    background-image:url(../picture/hit.png);
+    background-color: #155A18;
+    background-repeat:no-repeat;
+    background-size: cover;
+    visibility:hidden;
+}
+
+#restart{
+    position:absolute;
+    left:250px;
+    top:160px;
+    border-color:#155A18;
+    width:75px;
+    height:75px;
+    background-image:url(../picture/restart.png);
+    background-color: #155A18;
+    background-repeat:no-repeat;
+    background-size: cover;
+    visibility:hidden;
+}
+
+#fiveSecond{
+    position:absolute;
+    left:0px;
+    top:50px;
+    font-size: 30px;
+    font-family: Chalkduster, Helvetica, sans-serif;
+}

@@ -348,6 +348,7 @@ function passBtn(num) {
 //莊家hit
 let houseGetBtn = function () {
     if (Math.max(...house.totalPoint) < 17) {
+
         house.getCard(house, cardsArr);
         house.printCards(house.handCard, "house");
         house.result(house.totalPoint, "house");
