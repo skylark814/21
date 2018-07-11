@@ -5,6 +5,7 @@ let numOfPlayers = 0;
 let hideBtn = [];
 let countDown = 2;
 
+
 let onChange = function () {
     numOfPlayers = document.getElementById("howMany").value;
     players = [];
@@ -173,13 +174,13 @@ let house = {
             passBtn(num);
         }
         else if (arr.length === 2) {
-            document.getElementById("show" + num).innerHTML = 'Total Point:' + arr[1] + "<br>";
+            document.getElementById("show" + num).innerHTML =arr[1] + "<br>";
         }
         else if (arr.length === 1) {
-            document.getElementById("show" + num).innerHTML = 'Total Point:' + arr[0] + "<br>";
+            document.getElementById("show" + num).innerHTML =arr[0] + "<br>";
         }
         else if (arr.length === 0) {
-            document.getElementById("show" + num).innerHTML = tmp + '點!Bust!' + "<br>";
+            document.getElementById("show" + num).innerHTML = tmp + '!Bust!' + "<br>";
             passBtn(num);
         }
     },
@@ -190,7 +191,7 @@ let house = {
 
         }
         else {
-            document.getElementById("show" + num).innerHTML = 'Total Point:' + arr[1] + "<br>";
+            document.getElementById("show" + num).innerHTML =arr[1] + "<br>";
         }
     },
     //判斷勝負
@@ -289,7 +290,7 @@ function openBtn() {
     else {
         for (let i = 0; i < numOfPlayers; i++) {
             document.getElementById("moneyInput" + i).style.visibility = "visible";
-            document.getElementById("betValue" + i).innerHTML = "How much to bet:(You have " + players[i].money + ")";
+            document.getElementById("betValue" + i).innerHTML = "Money:" + players[i].money ;
             document.getElementById("moneyInput" + i).max = players[i].money;
             document.getElementById("moneyInput" + i).value = 10;
 
@@ -364,7 +365,6 @@ let restart = function () {
     // document.getElementById("open").style.visibility = "visible";
     document.getElementById("restart").style.visibility = "hidden";
     document.getElementById("showhouse").innerHTML = "";
-    document.getElementById("resulthouse").innerHTML = "";
     document.getElementById("imgshowhouse").innerHTML = "";
     house.totalPoint = [];
     house.handCard = [];

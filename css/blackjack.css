@@ -1,7 +1,10 @@
 body {
+    width:100%;
+    height:100%;
     background-image: url(../picture/desktop.png);
     background-repeat: no-repeat;
-    background-size: 100% 100%
+    background-size: 100% 100%;
+
 
 }
 
@@ -61,18 +64,105 @@ body {
     color: red;
     font-family: Chalkduster, Helvetica, sans-serif;
 }
+#player0,#player4{
+    position: relative;
+    bottom: 65px;
+    min-height: 373px;
+}
 
 #player1 {
     position: relative;
-    top: 70px;
+    top: 10px;
+    min-height: 373px;
+
 }
 
 #player2 {
     position: relative;
-    top: 110px;
+    top: 40px;
+    min-height: 373px;
+
 }
 
 #player3 {
     position: relative;
-    top: 70px;
+    top: 10px;
+    min-height: 373px;
+
 }
+
+#betValue0, #betValue1, #betValue2, #betValue3, #betValue4 {
+    position: relative;
+    left:50px;
+    bottom: 40px;
+    color: navajowhite;
+    font-family: Chalkduster, Helvetica, sans-serif;
+}
+
+#moneyInput0, #moneyInput1, #moneyInput2, #moneyInput3, #moneyInput4 {
+    position: relative;
+    width:60px;
+    left:140px;
+    bottom: 70px;
+    color: red;
+    font-family: Chalkduster, Helvetica, sans-serif;
+}
+
+#get0,#get1,#get2,#get3,#get4 {
+    position: relative;
+    left:70px;
+    bottom: 40px;
+    border-style: none;
+    width: 50px;
+    height: 50px;
+    background-image: url(../picture/hit.png);
+    background-color: #155A18;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+}
+
+#pass0,#pass1,#pass2,#pass3,#pass4 {
+    position: relative;
+    left:70px;
+
+    bottom: 40px;
+    border-style: none;
+    width: 50px;
+    height: 50px;
+    background-image: url(../picture/stand.png);
+    background-color: #155A18;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#imgshow0,#imgshow1,#imgshow2,#imgshow3,#imgshow4{
+    position: relative;
+    bottom: 180px;
+    left:30px;
+}
+
+
+#show0,#show1,#show2,#show3,#show4{
+    position: relative;
+    bottom: 80px;
+    left:10px;
+    font-size: 2em;
+    font-family: Chalkduster, Helvetica, sans-serif;
+    color: orangered;
+    text-align:center;
+}
+#imgshowhouse{
+    position: relative;
+    top: 45px;
+    left:200px;
+}
+#showhouse{
+    position: relative;
+    top: 200px;
+    left:120px;
+    font-size: 3em;
+    font-family: Chalkduster, Helvetica, sans-serif;
+    color: gold;
+}
+

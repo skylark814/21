@@ -38,7 +38,6 @@
         </div>
         <div class="col-sm-6" style="min-height: 300px;">
             <p id="showhouse"></p>
-            <p id="resulthouse"></p>
             <div id="imgshowhouse"></div>
         </div>
     </div>
@@ -49,108 +48,105 @@
     <div class="row">
 
         <div class="col-sm-2" id="player0"
-             style="position:relative; min-height: 500px;border: 4px groove white;">
+             style="position:relative;">
+            <div id="hideBtn0" style="visibility:hidden;">
+
+                <input type="button" id="get0" onclick="getCardBtn(0)">
+                <input type="button" id="pass0" onclick="passBtn(0)">
+            </div>
             <div>
                 <p id="betValue0"></p>
                 <input type="number" id="moneyInput0" min="10" max="" step="10" value="10" style="visibility:hidden;">
-                <!--<div>-->
-                <!--    <input type="button" id="plus10" value="+10" >-->
-                <!--    <p></p>-->
-                <!--    <input type="button" id="subtract10" value="-10" >-->
-
-                <!--</div>-->
 
             </div>
-            <div id="hideBtn0" style="visibility:hidden;">
 
-                <input type="button" id="get0" value="HIT" onclick="getCardBtn(0)">
-                <input type="button" id="pass0" value="STAND" onclick="passBtn(0)">
-            </div>
 
             <div>
-                <p id="show0" style="font-size: 1.5em;"></p>
                 <div id="imgshow0"></div>
+                <p id="show0"></p>
                 <p id="result0" style="background-color: red;font-size: 1.5em;"></p>
             </div>
 
         </div>
-        <div class="col-sm-2" id="player1"
-             style="min-height: 500px;border: 4px groove white;">
+        <div class="col-sm-2" id="player1">
+            <div id="hideBtn1" style="visibility:hidden;">
+
+                <input type="button" id="get1" onclick="getCardBtn(1)">
+                <input type="button" id="pass1" onclick="passBtn(1)">
+            </div>
             <div>
                 <p id="betValue1"></p>
                 <input type="number" id="moneyInput1" min="10" max="" step="10" value="10" style="visibility:hidden;">
 
             </div>
-            <div id="hideBtn1" style="visibility:hidden;">
 
-                <input type="button" id="get1" value="HIT" onclick="getCardBtn(1)">
-                <input type="button" id="pass1" value="STAND" onclick="passBtn(1)">
-            </div>
 
             <div>
-                <p id="show1" style="font-size: 1.5em;"></p>
                 <div id="imgshow1"></div>
+                <p id="show1"></p>
                 <p id="result1" style="background-color: blue;font-size: 1.5em;"></p>
 
             </div>
 
         </div>
-        <div class="col-sm-2" id="player2" style="min-height: 500px;border: 4px groove white;">
+        <div class="col-sm-2" id="player2">
+            <div id="hideBtn2" style="visibility:hidden;">
+
+                <input type="button" id="get2" onclick="getCardBtn(2)">
+                <input type="button" id="pass2" onclick="passBtn(2)">
+            </div>
             <div>
                 <p id="betValue2"></p>
                 <input type="number" id="moneyInput2" min="10" max="" step="10" value="10" style="visibility:hidden;">
 
             </div>
-            <div id="hideBtn2" style="visibility:hidden;">
 
-                <input type="button" id="get2" value="HIT" onclick="getCardBtn(2)">
-                <input type="button" id="pass2" value="STAND" onclick="passBtn(2)">
-            </div>
 
             <div>
-                <p id="show2" style="font-size: 1.5em;"></p>
                 <div id="imgshow2"></div>
+                <p id="show2"></p>
                 <p id="result2" style="background-color: red;font-size: 1.5em;"></p>
 
             </div>
 
         </div>
-        <div class="col-sm-2" id="player3"
-             style="min-height: 500px;border: 4px groove white;">
+        <div class="col-sm-2" id="player3">
+            <div id="hideBtn3" style="visibility:hidden;">
+
+                <input type="button" id="get3" onclick="getCardBtn(3)">
+                <input type="button" id="pass3" onclick="passBtn(3)">
+            </div>
             <div>
                 <p id="betValue3"></p>
                 <input type="number" id="moneyInput3" min="10" max="" step="10" value="10" style="visibility:hidden;">
 
             </div>
-            <div id="hideBtn3" style="visibility:hidden;">
 
-                <input type="button" id="get3" value="HIT" onclick="getCardBtn(3)">
-                <input type="button" id="pass3" value="STAND" onclick="passBtn(3)">
-            </div>
 
             <div>
-                <p id="show3" style="font-size: 1.5em;"></p>
                 <div id="imgshow3"></div>
+                <p id="show3"></p>
                 <p id="result3" style="background-color: blue;font-size: 1.5em;"></p>
 
             </div>
 
         </div>
-        <div class="col-sm-2" id="player4" style="min-height: 500px;border: 4px groove white;">
+        <div class="col-sm-2" id="player4">
+            <div id="hideBtn4" style="visibility:hidden;">
+
+                <input type="button" id="get4" onclick="getCardBtn(4)">
+                <input type="button" id="pass4" onclick="passBtn(4)">
+            </div>
             <div>
                 <p id="betValue4"></p>
                 <input type="number" id="moneyInput4" min="10" max="" step="10" value="10" style="visibility:hidden;">
 
             </div>
-            <div id="hideBtn4" style="visibility:hidden;">
 
-                <input type="button" id="get4" value="HIT" onclick="getCardBtn(4)">
-                <input type="button" id="pass4" value="STAND" onclick="passBtn(4)">
-            </div>
 
             <div>
-                <p id="show4" style="font-size: 1.5em;"></p>
                 <div id="imgshow4"></div>
+                <p id="show4"></p>
                 <p id="result4" style="background-color: blue;font-size: 1.5em;"></p>
 
             </div>
@@ -163,7 +159,7 @@
 
 <script src="js/jquery.js"></script>
 <script src="js/bootstrap.min.js"></script>
-<script src="js/blackjack0628.js"></script>
+<script src="js/blackjack0711.js"></script>
 
 
 </body>
