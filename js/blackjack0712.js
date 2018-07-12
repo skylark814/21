@@ -4,25 +4,44 @@ let players = [];
 let numOfPlayers = 0;
 let hideBtn = [];
 let countDown = 2;
+let winImg = [];
+let loseImg = [];
+let pushImg = [];
+let bjImg = [];
 
+
+for (let i = 0; i < 5; i++) {
+    winImg.push(document.createElement("img"));
+    loseImg.push(document.createElement("img"));
+    pushImg.push(document.createElement("img"));
+    bjImg.push(document.createElement("img"));
+}
+
+for (let i = 0; i < 5; i++) {
+    winImg[i].src = "picture/win.png";
+    loseImg[i].src = "picture/lose.png";
+    pushImg[i].src = "picture/push.png";
+    bjImg[i].src = "picture/blackjack.png";
+
+}
 
 let onChange = function () {
     numOfPlayers = document.getElementById("howMany").value;
     players = [];
     hideBtn = [];
 
-    //players array
+    //玩家陣列
     for (let i = 0; i < numOfPlayers; i++) {
         players.push(Object.assign({}, player));
     }
 
-    //hide area
+    //按鍵陣列
     for (let i = 0; i < numOfPlayers; i++) {
         hideBtn.push("hideBtn" + i);
     }
 
 };
-
+//玩家物件
 let player = {
     money: 100,
     bet: 0,
@@ -30,19 +49,19 @@ let player = {
     totalPoint: 0
 };
 
-//creat cards
+//創造一副牌
 for (let i = 1; i <= 52 * CARD_SET; i++) {
     cardsArr.push(i);
 }
 
 
-
+//莊家物件
 let house = {
     money: 100,
     handCard: [],
     totalPoint: 0,
     tempCardBox: [],
-    //print handcard
+    //印牌
     printCards(arr, num) {
         let forPrint = [];
         let imgArr = [];
@@ -96,7 +115,7 @@ let house = {
         }
 
     },
-    //shuffle
+    //洗牌
     shuffleCards(arr) {
         let tmp = new Array();
         let t = 0;
@@ -107,7 +126,7 @@ let house = {
             arr[t] = tmp;
         }
     },
-    //initial round
+    //開局發牌
     initialRound(players, cardsArr) {
 
         for (let i = 0; i < players.length; i++) {
@@ -130,7 +149,7 @@ let house = {
             players[i].totalPoint = house.count(players[i].handCard);
         }
     },
-    //hit card
+    //補牌
     getCard(players, cardsArr) {
         this.tempCardBox.push(cardsArr[0]);
         players.handCard.push(cardsArr[0]);
@@ -138,7 +157,7 @@ let house = {
         cardsArr.shift(cardsArr[0]);
 
     },
-    //count handcard point
+    //算點數
     count(arr) {
         let point = [];
         point[0] = 0;
@@ -160,8 +179,8 @@ let house = {
         }
         return point;
     },
-    //show handcard point
-    result(arr, num) {
+    //補牌後顯示結果
+    result(arr, num) { //秀結果
         let tmp = Math.max(...arr);
 
         for (let i = arr.length - 1; i >= 0; i--) {
@@ -170,101 +189,127 @@ let house = {
             }
         }
         if (arr[0] === 21 || arr[1] === 21) {
-            document.getElementById("show" + num).innerHTML = 'Twenty-One!' + "<br>";
+            document.getElementById("show" + num).innerHTML = '21!' + "<br>";
             passBtn(num);
         }
         else if (arr.length === 2) {
-            document.getElementById("show" + num).innerHTML =arr[1] + "<br>";
+            document.getElementById("show" + num).innerHTML = arr[1] + "<br>";
         }
         else if (arr.length === 1) {
-            document.getElementById("show" + num).innerHTML =arr[0] + "<br>";
+            document.getElementById("show" + num).innerHTML = arr[0] + "<br>";
         }
         else if (arr.length === 0) {
-            document.getElementById("show" + num).innerHTML = tmp + '!Bust!' + "<br>";
+            document.getElementById("show" + num).innerHTML = tmp+ "<br>";
+            document.getElementById("bomb"+num).style.opacity = 1;
             passBtn(num);
         }
     },
-    //check anyone get blackjack
+    //判斷發牌後的狀況
     blackJack(arr, num) {
         if (arr[1] === 21) {
             document.getElementById("show" + num).innerHTML = 'Black Jack!!!' + "<br>";
 
         }
         else {
-            document.getElementById("show" + num).innerHTML =arr[1] + "<br>";
+            document.getElementById("show" + num).innerHTML = arr[1] + "<br>";
         }
     },
-    //judge who win
+    //判斷勝負
     judgeWhoWin(players) {
 
-
-        //house bust
+        //莊家爆點
         if (this.totalPoint.length === 0) {
+            // document.getElementById("restart").style.visibility = "visible";
             document.getElementById("househit").style.visibility = "hidden";
             for (let i = 0; i < numOfPlayers; i++) {
-                //player get blackjack
+                //玩家拿到blackjack
                 if (players[i].handCard.length === 2 && players[i].totalPoint[1] === 21) {
-                    document.getElementById("result" + i).innerHTML += 'Win!Win!' + "<br>";
+                    document.getElementById("show" + i).innerHTML = "";
+                    document.getElementById("result" + i).appendChild(bjImg[i]);
                     players[i].money += 2.5 * players[i].bet;
                 }
 
                 else if (players[i].totalPoint.length > 0) {
-                    document.getElementById("result" + i).innerHTML += 'Win!' + "<br>";
+                    document.getElementById("result" + i).appendChild(winImg[i]);
                     players[i].money += 2 * players[i].bet;
                 }
                 else {
-                    document.getElementById("result" + i).innerHTML += 'Lose!' + "<br>";
+                    document.getElementById("result" + i).appendChild(loseImg[i]);
+                    document.getElementById("bomb"+i).style.opacity = 0;
+
                 }
             }
         }
 
-        //house get blackjack
+        //莊家blackjack
         else if (this.handCard.length === 2 && this.totalPoint[1] === 21) {
+            // document.getElementById("restart").style.visibility = "visible";
             document.getElementById("househit").style.visibility = "hidden";
             for (let i = 0; i < numOfPlayers; i++) {
-                //player get blackjack
+                //玩家拿到blackjack
                 if (players[i].handCard.length === 2 && players[i].totalPoint[1] === 21) {
-                    document.getElementById("result" + i).innerHTML += 'Win!Win!' + "<br>";
+                    document.getElementById("show" + i).innerHTML = "";
+                    document.getElementById("result" + i).appendChild(bjImg[i]);
                     players[i].money += 2.5 * players[i].bet;
                 }
                 else {
-                    document.getElementById("result" + i).innerHTML += 'Lose!' + "<br>";
+                    document.getElementById("bomb"+i).style.opacity = 0;
+                    document.getElementById("result" + i).appendChild(loseImg[i]);
                 }
             }
         }
-        //house's point big than 17
+        //莊家大於17點
         else if (Math.max(...this.totalPoint) >= 17) {
             document.getElementById("restart").style.visibility = "visible";
             document.getElementById("househit").style.visibility = "hidden";
             for (let i = 0; i < numOfPlayers; i++) {
 
-                //player bust
+                //玩家爆點
                 if (players[i].totalPoint.length === 0) {
-                    document.getElementById("result" + i).innerHTML += 'Lose!' + "<br>";
+                    document.getElementById("bomb"+i).style.opacity = 0;
+                    document.getElementById("result" + i).appendChild(loseImg[i]);
                 }
-                //player get blackjack
+                //玩家blackjack
                 else if (players[i].handCard.length === 2 && players[i].totalPoint[1] === 21) {
-                    document.getElementById("result" + i).innerHTML += 'Win!Win!' + "<br>";
+                    document.getElementById("show" + i).innerHTML = "";
+                    document.getElementById("result" + i).appendChild(bjImg[i]);
                     players[i].money += 2.5 * players[i].bet;
                 }
                 else if (Math.max(...players[i].totalPoint) > Math.max(...this.totalPoint)) {
-                    document.getElementById("result" + i).innerHTML += 'Win!' + "<br>";
+                    document.getElementById("result" + i).appendChild(winImg[i]);
                     players[i].money += 2 * players[i].bet;
                 }
                 else if (Math.max(...players[i].totalPoint) === Math.max(...this.totalPoint)) {
-                    document.getElementById("result" + i).innerHTML += 'Push!' + "<br>";
+                    document.getElementById("result" + i).appendChild(pushImg[i]);
                     players[i].money += players[i].bet;
                 }
                 else if (Math.max(...players[i].totalPoint) < Math.max(...this.totalPoint)) {
-                    document.getElementById("result" + i).innerHTML += 'Lose!' + "<br>";
+                    document.getElementById("bomb"+i).style.opacity = 0;
+                    document.getElementById("result" + i).appendChild(loseImg[i]);
                 }
             }
+
         }
+
     },
+    // //判斷下一個玩家是否black jack
+    // bjOrNot(num) {
+    //     for (let i = num; i < numOfPlayers; i++) {
+    //         if (players[i].totalPoint[1] !== 21) {
+    //             document.getElementById("hideBtn" + i).style.visibility = "visible";
+    //             break;
+    //         }
+    //         else {
+    //             document.getElementById("hideBtn" + i).style.visibility = "hidden";
+    //         }
+    //     }
+    // }
+
+
 };
 
 
-//open
+//開局Btn
 function openBtn() {
     if (numOfPlayers === 0) {
         alert("Please choose how many person want to play!!");
@@ -272,18 +317,20 @@ function openBtn() {
     else {
         for (let i = 0; i < numOfPlayers; i++) {
             document.getElementById("moneyInput" + i).style.visibility = "visible";
-            document.getElementById("betValue" + i).innerHTML = "Money:" + players[i].money ;
+            document.getElementById("betValue" + i).innerHTML = "Money:" + players[i].money;
             document.getElementById("moneyInput" + i).max = players[i].money;
             document.getElementById("moneyInput" + i).value = 10;
+
         }
         document.getElementById("open").style.visibility = "hidden";
         document.getElementById("howMany").style.visibility = "hidden";
+        // document.getElementById("start").style.visibility = "visible";
         fiveCountDown();
     }
 }
 
 
-//house start
+//開始botton
 let houseStartBtn = function () {
     house.shuffleCards(cardsArr);
     house.initialRound(players, cardsArr);
@@ -304,18 +351,19 @@ let houseStartBtn = function () {
 
 
 };
-//player hit
+//玩家hit
 let getCardBtn = function (num) {
     house.getCard(players[num], cardsArr);
     house.printCards(players[num].handCard, num);
     house.result(players[num].totalPoint, num);
 };
 
-//player stand
+//玩家pass
 function passBtn(num) {
     if (num === numOfPlayers - 1) {
         document.getElementById(hideBtn[num]).style.visibility = "hidden";
         document.getElementById("househit").style.visibility = "visible";
+        //houseGetBtn();
     }
     else if (num === "house") {
         document.getElementById("restart").style.visibility = "visible";
@@ -326,24 +374,21 @@ function passBtn(num) {
     }
 }
 
-//house hit
+//莊家hit
 let houseGetBtn = function () {
-
-
-        house.getCard(house, cardsArr);
-        house.printCards(house.handCard, "house");
-        house.result(house.totalPoint, "house");
-
-
-         house.judgeWhoWin(players);
-
+    house.getCard(house, cardsArr);
+    house.printCards(house.handCard, "house");
+    house.result(house.totalPoint, "house");
+    house.judgeWhoWin(players);
 };
 
-//restart
+//restart Btn
 let restart = function () {
+    // document.getElementById("open").style.visibility = "visible";
     document.getElementById("restart").style.visibility = "hidden";
     document.getElementById("showhouse").innerHTML = "";
     document.getElementById("imgshowhouse").innerHTML = "";
+    document.getElementById("bombhouse").style.opacity = 0;
     house.totalPoint = [];
     house.handCard = [];
     cardsArr = cardsArr.concat(house.tempCardBox);
@@ -354,6 +399,7 @@ let restart = function () {
         document.getElementById("result" + i).innerHTML = "";
         document.getElementById("imgshow" + i).innerHTML = "";
         document.getElementById("betValue" + i).innerHTML = "";
+        document.getElementById("bomb"+i).style.opacity = 0;
         players[i].handCard = [];
         players[i].totalPoint = [];
         players[i].bet = 0;

@@ -1,10 +1,9 @@
 body {
-    width:100%;
-    height:100%;
+    width: 100%;
+    height: 100%;
     background-image: url(../picture/desktop.png);
     background-repeat: no-repeat;
     background-size: 100% 100%;
-
 
 }
 
@@ -64,7 +63,8 @@ body {
     color: red;
     font-family: Chalkduster, Helvetica, sans-serif;
 }
-#player0,#player4{
+
+#player0, #player4 {
     position: relative;
     bottom: 65px;
     min-height: 373px;
@@ -93,7 +93,7 @@ body {
 
 #betValue0, #betValue1, #betValue2, #betValue3, #betValue4 {
     position: relative;
-    left:50px;
+    left: 50px;
     bottom: 40px;
     color: navajowhite;
     font-family: Chalkduster, Helvetica, sans-serif;
@@ -101,16 +101,16 @@ body {
 
 #moneyInput0, #moneyInput1, #moneyInput2, #moneyInput3, #moneyInput4 {
     position: relative;
-    width:60px;
-    left:140px;
+    width: 60px;
+    left: 140px;
     bottom: 70px;
     color: red;
     font-family: Chalkduster, Helvetica, sans-serif;
 }
 
-#get0,#get1,#get2,#get3,#get4 {
+#get0, #get1, #get2, #get3, #get4 {
     position: relative;
-    left:70px;
+    left: 70px;
     bottom: 40px;
     border-style: none;
     width: 50px;
@@ -122,9 +122,9 @@ body {
 
 }
 
-#pass0,#pass1,#pass2,#pass3,#pass4 {
+#pass0, #pass1, #pass2, #pass3, #pass4 {
     position: relative;
-    left:70px;
+    left: 70px;
 
     bottom: 40px;
     border-style: none;
@@ -136,33 +136,62 @@ body {
     background-size: cover;
 }
 
-#imgshow0,#imgshow1,#imgshow2,#imgshow3,#imgshow4{
+#imgshow0, #imgshow1, #imgshow2, #imgshow3, #imgshow4 {
     position: relative;
     bottom: 180px;
-    left:30px;
+    left: 30px;
+    z-index: 1;
 }
 
-
-#show0,#show1,#show2,#show3,#show4{
+#show0, #show1, #show2, #show3, #show4 {
     position: relative;
     bottom: 80px;
-    left:10px;
+    left: 10px;
     font-size: 2em;
     font-family: Chalkduster, Helvetica, sans-serif;
     color: orangered;
-    text-align:center;
+    text-align: center;
 }
-#imgshowhouse{
+
+#imgshowhouse {
     position: relative;
     top: 45px;
-    left:200px;
+    left: 200px;
 }
-#showhouse{
+
+#showhouse {
     position: relative;
     top: 200px;
-    left:120px;
+    left: 120px;
     font-size: 3em;
     font-family: Chalkduster, Helvetica, sans-serif;
     color: gold;
 }
 
+#result0, #result1, #result2, #result3, #result4 {
+    position: relative;
+    bottom: 50px;
+    left: 90px;
+    z-index: 3;
+}
+
+#bomb0,#bomb1,#bomb2,#bomb3,#bomb4 {
+    position: relative;
+    z-index: 2;
+    width: 150px;
+    height: 100px;
+    bottom: 70px;
+    left:50px;
+    opacity: 0;
+    transition: 0.1s;
+}
+#bombhouse{
+    position: relative;
+    z-index: 2;
+    width: 200px;
+    height: 150px;
+    right:430px;
+    top:150px;
+    opacity: 0;
+    transition: 0.1s;
+}
