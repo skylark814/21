@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <title>21點遊戲</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+<style>
+    #plus{
+        position: relative;
+        left: 100px;
+        top: 160px;
+        border-style: none;
+        width: 75px;
+        height: 75px;
+        background-image: url(picture/plus.png);
+        background-repeat: no-repeat;
+        background-size: cover
+
+    }
+    #minus{
+        position: relative;
+        left: 100px;
+        top: 160px;
+        border-style: none;
+        width: 75px;
+        height: 75px;
+        background-image: url(picture/minus.png);
+        background-repeat: no-repeat;
+        background-size: cover
+
+    }
+</style>
+
+
+
+</head>
+
+<body>
+<input type="button" id="plus" value="+" onclick="bet(1)">
+<p id="betvalue">10</p>
+<input type="button" id="minus" value="-" onclick="bet(2)">
+
+<script>
+    let moneyMin = 10;
+    let moneyMax = 100;
+
+    let bet = function (e) {
+
+
+    }
+</script>
+
+
+</body>
+
+</html>

@@ -3,7 +3,7 @@ let CARD_SET = 3;
 let players = [];
 let numOfPlayers = 0;
 let hideBtn = [];
-let countDown = 2;
+let countDown = 5;
 let winImg = [];
 let loseImg = [];
 let pushImg = [];
@@ -47,6 +47,7 @@ let player = {
     bet: 0,
     handCard: [],
     totalPoint: 0
+
 };
 
 //創造一副牌
@@ -199,8 +200,8 @@ let house = {
             document.getElementById("show" + num).innerHTML = arr[0] + "<br>";
         }
         else if (arr.length === 0) {
-            document.getElementById("show" + num).innerHTML = tmp+ "<br>";
-            document.getElementById("bomb"+num).style.opacity = 1;
+            document.getElementById("show" + num).innerHTML = tmp + "<br>";
+            document.getElementById("bomb" + num).style.opacity = 1;
             passBtn(num);
         }
     },
@@ -235,7 +236,7 @@ let house = {
                 }
                 else {
                     document.getElementById("result" + i).appendChild(loseImg[i]);
-                    document.getElementById("bomb"+i).style.opacity = 0;
+                    document.getElementById("bomb" + i).style.opacity = 0;
 
                 }
             }
@@ -253,7 +254,7 @@ let house = {
                     players[i].money += 2.5 * players[i].bet;
                 }
                 else {
-                    document.getElementById("bomb"+i).style.opacity = 0;
+                    document.getElementById("bomb" + i).style.opacity = 0;
                     document.getElementById("result" + i).appendChild(loseImg[i]);
                 }
             }
@@ -266,7 +267,7 @@ let house = {
 
                 //玩家爆點
                 if (players[i].totalPoint.length === 0) {
-                    document.getElementById("bomb"+i).style.opacity = 0;
+                    document.getElementById("bomb" + i).style.opacity = 0;
                     document.getElementById("result" + i).appendChild(loseImg[i]);
                 }
                 //玩家blackjack
@@ -284,26 +285,48 @@ let house = {
                     players[i].money += players[i].bet;
                 }
                 else if (Math.max(...players[i].totalPoint) < Math.max(...this.totalPoint)) {
-                    document.getElementById("bomb"+i).style.opacity = 0;
+                    document.getElementById("bomb" + i).style.opacity = 0;
                     document.getElementById("result" + i).appendChild(loseImg[i]);
                 }
             }
 
         }
 
+
     },
-    // //判斷下一個玩家是否black jack
-    // bjOrNot(num) {
-    //     for (let i = num; i < numOfPlayers; i++) {
-    //         if (players[i].totalPoint[1] !== 21) {
-    //             document.getElementById("hideBtn" + i).style.visibility = "visible";
-    //             break;
-    //         }
-    //         else {
-    //             document.getElementById("hideBtn" + i).style.visibility = "hidden";
-    //         }
-    //     }
-    // }
+    betmoney(e, i, playermoney) {
+        let moneyMax = 50;
+        let moneyMin = 10;
+        x = parseInt(document.getElementById("bet" + i).innerText);
+        if (playermoney <= 0) {
+            alert("You have no money!!!");
+
+        }
+        else {
+            if (e === 1) {
+                x += 10;
+                if (x >= moneyMax || x >= playermoney) {
+                    document.getElementById("bet" + i).innerText = Math.min(moneyMax, playermoney);
+                }
+                else {
+                    document.getElementById("bet" + i).innerText = x;
+
+                }
+            }
+            else {
+                x -= 10;
+                if (x <= moneyMin) {
+                    document.getElementById("bet" + i).innerText = moneyMin;
+                }
+                else {
+                    document.getElementById("bet" + i).innerText = x;
+
+                }
+
+            }
+        }
+
+    }
 
 
 };
@@ -317,9 +340,8 @@ function openBtn() {
     else {
         for (let i = 0; i < numOfPlayers; i++) {
             document.getElementById("moneyInput" + i).style.visibility = "visible";
-            document.getElementById("betValue" + i).innerHTML = "$:" + players[i].money;
-            document.getElementById("moneyInput" + i).max = players[i].money;
-            document.getElementById("moneyInput" + i).value = 10;
+            document.getElementById("betValue" + i).innerHTML = "Total:" + players[i].money;
+            document.getElementById("bet" + i).innerText = 10;
 
         }
         document.getElementById("open").style.visibility = "hidden";
@@ -336,7 +358,7 @@ let houseStartBtn = function () {
     house.initialRound(players, cardsArr);
 
     for (let i = 0; i < numOfPlayers; i++) {
-        players[i].bet = document.getElementById("moneyInput" + i).value;
+        players[i].bet = parseInt(document.getElementById("bet" + i).innerText);
         house.printCards(players[i].handCard, i);
         house.blackJack(players[i].totalPoint, i);
         players[i].money = players[i].money - players[i].bet;
@@ -384,6 +406,7 @@ let houseGetBtn = function () {
 
 //restart Btn
 let restart = function () {
+
     // document.getElementById("open").style.visibility = "visible";
     document.getElementById("restart").style.visibility = "hidden";
     document.getElementById("showhouse").innerHTML = "";
@@ -399,12 +422,13 @@ let restart = function () {
         document.getElementById("result" + i).innerHTML = "";
         document.getElementById("imgshow" + i).innerHTML = "";
         document.getElementById("betValue" + i).innerHTML = "";
-        document.getElementById("bomb"+i).style.opacity = 0;
+        document.getElementById("bomb" + i).style.opacity = 0;
+        document.getElementById("bet"+i).innerHTML = 10;
         players[i].handCard = [];
         players[i].totalPoint = [];
         players[i].bet = 0;
     }
-    countDown = 2;
+    countDown = 5;
     openBtn();
 };
 

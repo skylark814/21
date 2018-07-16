@@ -4,6 +4,7 @@ body {
     background-image: url(../picture/desktop.png);
     background-repeat: no-repeat;
     background-size: 100% 100%;
+    overflow: hidden;
 
 }
 
@@ -16,26 +17,26 @@ body {
 
 #open {
     position: absolute;
-    left: 100px;
-    top: 160px;
+    left: 120px;
+    top: 120px;
     border-style: none;
     width: 75px;
     height: 75px;
     background-image: url(../picture/start.png);
-    background-color: #155A18;
+    background-color: #1c5e1f;
     background-repeat: no-repeat;
     background-size: cover
 }
 
 #househit {
     position: absolute;
-    left: 175px;
-    top: 160px;
+    left: 195px;
+    top: 120px;
     border-style: none;
     width: 75px;
     height: 75px;
     background-image: url(../picture/hit.png);
-    background-color: #155A18;
+    background-color: #1c5e1f;
     background-repeat: no-repeat;
     background-size: cover;
     visibility: hidden;
@@ -43,13 +44,13 @@ body {
 
 #restart {
     position: absolute;
-    left: 250px;
-    top: 160px;
+    left: 270px;
+    top: 120px;
     border-style: none;
     width: 75px;
     height: 75px;
     background-image: url(../picture/restart.png);
-    background-color: #155A18;
+    background-color: #1c5e1f;
     background-repeat: no-repeat;
     background-size: cover;
     visibility: hidden;
@@ -67,28 +68,25 @@ body {
 #player0, #player4 {
     position: relative;
     bottom: 65px;
-    min-height: 373px;
+    height: 373px;
 }
 
 #player1 {
     position: relative;
-    top: 10px;
-    min-height: 373px;
-
+    top: 8px;
+    height: 373px;
 }
 
 #player2 {
     position: relative;
     top: 40px;
-    min-height: 373px;
-
+    height: 373px;
 }
 
 #player3 {
     position: relative;
-    top: 10px;
-    min-height: 373px;
-
+    top: 8px;
+    height: 373px;
 }
 
 #betValue0, #betValue1, #betValue2, #betValue3, #betValue4 {
@@ -106,6 +104,7 @@ body {
     bottom: 70px;
     color: red;
     font-family: Chalkduster, Helvetica, sans-serif;
+    visibility: hidden;
 }
 
 #get0, #get1, #get2, #get3, #get4 {
@@ -116,7 +115,7 @@ body {
     width: 50px;
     height: 50px;
     background-image: url(../picture/hit.png);
-    background-color: #155A18;
+    background-color: #1c5e1f;
     background-repeat: no-repeat;
     background-size: cover;
 
@@ -131,21 +130,21 @@ body {
     width: 50px;
     height: 50px;
     background-image: url(../picture/stand.png);
-    background-color: #155A18;
+    background-color: #1c5e1f;
     background-repeat: no-repeat;
     background-size: cover;
 }
 
 #imgshow0, #imgshow1, #imgshow2, #imgshow3, #imgshow4 {
     position: relative;
-    bottom: 180px;
+    bottom: 290px;
     left: 30px;
     z-index: 1;
 }
 
 #show0, #show1, #show2, #show3, #show4 {
     position: relative;
-    bottom: 80px;
+    bottom: 180px;
     left: 10px;
     font-size: 2em;
     font-family: Chalkduster, Helvetica, sans-serif;
@@ -170,28 +169,64 @@ body {
 
 #result0, #result1, #result2, #result3, #result4 {
     position: relative;
-    bottom: 50px;
+    bottom: 150px;
     left: 90px;
     z-index: 3;
 }
 
-#bomb0,#bomb1,#bomb2,#bomb3,#bomb4 {
+#bomb0, #bomb1, #bomb2, #bomb3, #bomb4 {
     position: relative;
     z-index: 2;
     width: 150px;
     height: 100px;
-    bottom: 70px;
-    left:50px;
+    bottom: 180px;
+    left: 50px;
     opacity: 0;
     transition: 0.1s;
 }
-#bombhouse{
+
+#bombhouse {
     position: relative;
     z-index: 2;
     width: 200px;
     height: 150px;
-    right:430px;
-    top:150px;
+    right: 430px;
+    top: 150px;
     opacity: 0;
     transition: 0.1s;
+}
+
+#plusBtn0 ,#plusBtn1,#plusBtn2,#plusBtn3,#plusBtn4{
+    position: relative;
+    left: 0px;
+    bottom: 40px;
+    border-style: none;
+    width: 40px;
+    height: 40px;
+    background-color: #1c5e1f;
+    background-image: url(../picture/plus.png);
+    background-repeat: no-repeat;
+    background-size: cover
+
+}
+
+#minusBtn0,#minusBtn1,#minusBtn2,#minusBtn3,#minusBtn4 {
+    position: relative;
+    left: 0px;
+    bottom: 60px;
+    border-style: none;
+    width: 40px;
+    height: 40px;
+    background-color: #1c5e1f;
+    background-image: url(../picture/minus.png);
+    background-repeat: no-repeat;
+    background-size: cover
+
+}
+
+#bet0,#bet1,#bet2,#bet3,#bet4 {
+    position: relative;
+    left: 5px;
+    bottom: 47px;
+    font-size: 1.5em;
 }
