@@ -4,54 +4,46 @@
 <head>
     <meta charset="UTF-8">
     <title>21點遊戲</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="css/bootstrap.min.css" rel="stylesheet">
-<style>
-    #plus{
-        position: relative;
-        left: 100px;
-        top: 160px;
-        border-style: none;
-        width: 75px;
-        height: 75px;
-        background-image: url(picture/plus.png);
-        background-repeat: no-repeat;
-        background-size: cover
-
-    }
-    #minus{
-        position: relative;
-        left: 100px;
-        top: 160px;
-        border-style: none;
-        width: 75px;
-        height: 75px;
-        background-image: url(picture/minus.png);
-        background-repeat: no-repeat;
-        background-size: cover
-
-    }
-</style>
-
 
 
 </head>
 
 <body>
-<input type="button" id="plus" value="+" onclick="bet(1)">
-<p id="betvalue">10</p>
-<input type="button" id="minus" value="-" onclick="bet(2)">
+
+<audio loop id="demo" src=""></audio>
+<div>
+    <button type="button" class="btn btn-danger btn-sm" onclick="music(0)">1
+        <span class="glyphicon glyphicon-play" aria-hidden="true"></span>
+    </button>
+    <button type="button" class="btn btn-info btn-sm" onclick="music(1)">2
+        <span class="glyphicon glyphicon-play" aria-hidden="true"></span>
+    </button>
+    <button type="button" class="btn btn-info btn-sm" onclick="music(2)">3
+        <span class="glyphicon glyphicon-play" aria-hidden="true"></span>
+    </button>
+    <button type="button" class="btn btn-info btn-sm"
+            onclick="document.getElementById('demo').pause()">
+        <span class="glyphicon glyphicon-pause" aria-hidden="true"></span>
+    </button>
+</div>
+
+
+<!--<button onclick="document.getElementById('demo2').volume+=0.1">增加音量</button>-->
+<!--<button onclick="document.getElementById('demo2').volume-=0.1">降低音量</button>-->
+
 
 <script>
-    let moneyMin = 10;
-    let moneyMax = 100;
-
-    let bet = function (e) {
-
+    let music = function (i) {
+        let musicList = ["bgmusic4.mp3","bgmusic5.mp3","bgmusic6.mp3"];
+        document.getElementById("demo").src = musicList[i];
+        document.getElementById('demo').play();
 
     }
 </script>
 
+<script src="js/jquery.js"></script>
+<script src="js/bootstrap.min.js"></script>
 
 </body>
 
