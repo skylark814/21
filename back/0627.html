@@ -5,8 +5,8 @@
     <meta charset="UTF-8">
     <title>21點遊戲</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/blackjack.css" rel="stylesheet">
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/blackjack.css" rel="stylesheet">
 
 </head>
 
@@ -14,7 +14,7 @@
 
 <div class="container-fluid">
     <div class="row">
-        <div class="col-sm-3" style="height: 300px;">
+        <div class="col-sm-3" style="min-height: 300px;">
 
             <form>
                 <select id="howMany" class="btn btn-warning dropdown-toggle" onchange="onChange()">
@@ -36,11 +36,11 @@
             </div>
 
         </div>
-        <div class="col-sm-6" style="height: 300px;">
+        <div class="col-sm-6" style="min-height: 300px;">
             <p id="showhouse"></p>
             <div id="imgshowhouse"></div>
         </div>
-        <img id="bombhouse" src="picture/bomb.png">
+        <img id="bombhouse" src="../picture/bomb.png">
 
     </div>
 </div>
@@ -58,11 +58,8 @@
             </div>
             <div>
                 <p id="betValue0"></p>
-                <div id="moneyInput0">
-                    <input type="button" id="plusBtn0"  onclick="house.betmoney(1,0,players[0].money)">
-                    <p id="bet0">10</p>
-                    <input type="button" id="minusBtn0"  onclick="house.betmoney(2,0,players[0].money)">
-                </div>
+                <input type="number" id="moneyInput0" min="10" max="" step="10" value="10" style="visibility:hidden;">
+
             </div>
 
             <div>
@@ -70,7 +67,7 @@
                 <p id="show0"></p>
                 <p id="result0"></p>
             </div>
-            <img id="bomb0" src="picture/bomb.png">
+            <img id="bomb0" src="../picture/bomb.png">
 
 
         </div>
@@ -82,11 +79,8 @@
             </div>
             <div>
                 <p id="betValue1"></p>
-                <div id="moneyInput1" style="visibility: hidden">
-                    <input type="button" id="plusBtn1"  onclick="house.betmoney(1,1,players[1].money)">
-                    <p id="bet1">10</p>
-                    <input type="button" id="minusBtn1"  onclick="house.betmoney(2,1,players[1].money)">
-                </div>
+                <input type="number" id="moneyInput1" min="10" max="" step="10" value="10" style="visibility:hidden;">
+
             </div>
 
 
@@ -95,7 +89,7 @@
                 <p id="show1"></p>
                 <p id="result1"></p>
             </div>
-            <img id="bomb1" src="picture/bomb.png">
+            <img id="bomb1" src="../picture/bomb.png">
 
         </div>
         <div class="col-sm-2" id="player2">
@@ -106,11 +100,8 @@
             </div>
             <div>
                 <p id="betValue2"></p>
-                <div id="moneyInput2" style="visibility: hidden">
-                    <input type="button" id="plusBtn2"  onclick="house.betmoney(1,2,players[2].money)">
-                    <p id="bet2">10</p>
-                    <input type="button" id="minusBtn2"  onclick="house.betmoney(2,2,players[2].money)">
-                </div>
+                <input type="number" id="moneyInput2" min="10" max="" step="10" value="10" style="visibility:hidden;">
+
             </div>
 
 
@@ -119,7 +110,7 @@
                 <p id="show2"></p>
                 <p id="result2"></p>
             </div>
-            <img id="bomb2" src="picture/bomb.png">
+            <img id="bomb2" src="../picture/bomb.png">
 
 
         </div>
@@ -131,11 +122,8 @@
             </div>
             <div>
                 <p id="betValue3"></p>
-                <div id="moneyInput3" style="visibility: hidden">
-                    <input type="button" id="plusBtn3"  onclick="house.betmoney(1,3,players[3].money)">
-                    <p id="bet3">10</p>
-                    <input type="button" id="minusBtn3"  onclick="house.betmoney(2,3,players[3].money)">
-                </div>
+                <input type="number" id="moneyInput3" min="10" max="" step="10" value="10" style="visibility:hidden;">
+
             </div>
 
 
@@ -144,7 +132,7 @@
                 <p id="show3"></p>
                 <p id="result3"></p>
             </div>
-            <img id="bomb3" src="picture/bomb.png">
+            <img id="bomb3" src="../picture/bomb.png">
 
 
         </div>
@@ -156,11 +144,8 @@
             </div>
             <div>
                 <p id="betValue4"></p>
-                <div id="moneyInput4" style="visibility: hidden">
-                    <input type="button" id="plusBtn4"  onclick="house.betmoney(1,4,players[4].money)">
-                    <p id="bet4">10</p>
-                    <input type="button" id="minusBtn4"  onclick="house.betmoney(2,4,players[4].money)">
-                </div>
+                <input type="number" id="moneyInput4" min="10" max="" step="10" value="10" style="visibility:hidden;">
+
             </div>
 
 
@@ -169,7 +154,7 @@
                 <p id="show4"></p>
                 <p id="result4"></p>
             </div>
-            <img id="bomb4" src="picture/bomb.png">
+            <img id="bomb4" src="../picture/bomb.png">
 
 
         </div>
@@ -178,9 +163,9 @@
 </div>
 
 
-<script src="js/jquery.js"></script>
-<script src="js/bootstrap.min.js"></script>
-<script src="js/blackjack0716.js"></script>
+<script src="../js/jquery.js"></script>
+<script src="../js/bootstrap.min.js"></script>
+<script src="js/blackjack0712.js"></script>
 
 
 </body>
