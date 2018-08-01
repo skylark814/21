@@ -1,9 +1,9 @@
 body {
-    width: 100%;
+    width:auto;
     height: 100%;
     background-image: url(../picture/desktop.png);
     background-repeat: no-repeat;
-    background-size: 100% 100%;
+    background-size:100% 100% ;
     overflow: hidden;
 
 }

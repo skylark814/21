@@ -1,5 +1,5 @@
 let cardsArr = [];
-let CARD_SET = 3;
+let CARD_SET = 4;
 let players = [];
 let numOfPlayers = 0;
 let hideBtn = [];
