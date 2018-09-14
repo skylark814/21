@@ -181,7 +181,7 @@ let house = {
         return point;
     },
     //show point after hit
-    result(arr, num) { //秀結果
+    result(arr, num) {
         let tmp = Math.max(...arr);
 
         for (let i = arr.length - 1; i >= 0; i--) {
