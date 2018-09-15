@@ -50,7 +50,7 @@ let player = {
 
 };
 
-//creat cardsArray
+//create cardsArray
 for (let i = 1; i <= 52 * CARD_SET; i++) {
     cardsArr.push(i);
 }
